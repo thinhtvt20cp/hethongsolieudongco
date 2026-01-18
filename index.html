@@ -2,37 +2,51 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Quản lý quấn động cơ </title>
+<title>Quản lý quấn động cơ</title>
 <script src="https://script.google.com/macros/s/AKfycbwJyHKqYHSrcV2TEkMvV_ShSQe49LOSzgIOu501HmvsiMr--ycsY1ZqR3MdxmLpddQCQQ/exec"></script>
 
 <style>
 body{
-font-family:Tahoma,Arial,sans-serif;
-background:linear-gradient(135deg,#dcfce7,#ecfdf5);
-padding:20px
+font-family:'Tahoma',Tahoma,Arial,sans-serif;
+background:linear-gradient(135deg,#0f172a,#14532d);
+padding:25px;
+color:#0f172a
 }
 
-.container{max-width:1200px;margin:auto}
+.container{
+max-width:1300px;
+margin:auto
+}
+
 
 .header{
-background:#14532d;
+background:linear-gradient(135deg,#22c55e,#15803d);
 color:white;
-padding:22px;
-border-radius:20px;
+padding:26px;
+border-radius:24px;
 text-align:center;
-font-size:30px;
+font-size:32px;
 font-weight:900;
-letter-spacing:1px;
-box-shadow:0 8px 18px rgba(0,0,0,.3)
+letter-spacing:1.5px;
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+backdrop-filter:blur(6px)
 }
 
+
 .card{
-background:white;
-padding:20px;
-border-radius:18px;
-margin:18px 0;
-box-shadow:0 5px 12px rgba(0,0,0,.2)
+background:rgba(255,255,255,.95);
+padding:22px;
+border-radius:22px;
+margin:20px 0;
+box-shadow:0 18px 35px rgba(0,0,0,.18);
+transition:.25s
 }
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 25px 50px rgba(0,0,0,.25)
+}
+
 
 h3{
 color:#14532d;
@@ -78,35 +92,27 @@ box-shadow:0 0 0 3px rgba(34,197,94,.25)
 }
 
 /* BUTTON */
-.btn-group{display:flex;gap:12px;margin-top:15px}
-
 button{
-font-family:Tahoma,Arial,sans-serif;
 font-weight:900;
-letter-spacing:.5px;
+letter-spacing:1px;
 text-transform:uppercase;
-
-background:#22c55e;
-color:white;
-padding:13px 32px;
+padding:14px 34px;
 border:none;
-border-radius:16px;
+border-radius:18px;
 font-size:14px;
 cursor:pointer;
 transition:.25s;
-box-shadow:0 5px 12px rgba(0,0,0,.25)
+box-shadow:0 10px 20px rgba(0,0,0,.3)
 }
+
 button:hover{
-transform:translateY(-2px) scale(1.05);
-background:#16a34a;
-box-shadow:0 8px 16px rgba(0,0,0,.35)
+transform:translateY(-3px) scale(1.06);
+filter:brightness(1.1)
 }
 
 .blue{background:#0ea5e9}
-.blue:hover{background:#0284c7}
-
 .red{background:#ef4444}
-.red:hover{background:#dc2626}
+
 
 /* TABLE */
 table{
@@ -136,53 +142,16 @@ font-size:14px
 <div class="header">
 PHẦN MỀM QUẢN LÝ QUẤN ĐỘNG CƠ
 </div>
-
-<!-- THÔNG TIN CHUNG -->
-<div class="card">
 <!-- THÔNG TIN CHUNG -->
 <div class="card">
 <h3>① THÔNG TIN CHUNG</h3>
 <div class="grid">
-
-<div class="field">
-  <label>Loại động cơ</label>
-  <input id="hang" list="dsHang" placeholder="">
-  <datalist id="dsHang">
-    <option value="Bảo Long">
-    <option value="VTC">
-    <option value="Hồng Ký">
-    <option value="Thượng Hải">
-    <option value="Khác">
-  </datalist>
-</div>
+<div class="field"><label>Tên động cơ</label><input id="ten"></div>
 <div class="field"><label>Loại</label>
 <select id="loai"><option>1 pha</option><option>3 pha</option></select></div>
-<div class="field"><label>Công suất</label>
-  <input id="cong suat" list="dscs" placeholder="">
-  <datalist id="dscs">
-    <option value="200w">
-    <option value="370w">
-    <option value="750w">
-    <option value="1.1Kw">
-    <option value="2.2Kw">
-    <option value="3.0Kw">
-    <option value="3.7Kw">
-    <option value="Khác">
-  </datalist>
-</div>
-<div class="field"><label>Điện áp</label>
-<select id="dienap"><option>220V</option><option>110V</option><option>380V</option></select></div>
-<div class="field"><label>Tụ</label>
-  <input id="tu" list="dstu" placeholder="">
-  <datalist id="dstu">
-    <option value="20-200">
-    <option value="30-300">
-    <option value="40-300">
-    <option value="45-300">
-    <option value="50-300">
-    <option value="Khác">
-  </datalist>
-</div>
+<div class="field"><label>Công suất</label><input id="cs"></div>
+<div class="field"><label>Điện áp</label><input id="ap"></div>
+<div class="field"><label>Tụ</label><input id="tu"></div>
 <div class="field"><label>Đạn</label><input id="dan"></div>
 </div>
 </div>
@@ -234,7 +203,7 @@ PHẦN MỀM QUẢN LÝ QUẤN ĐỘNG CƠ
 <div class="card">
 <h3>⑥ DANH SÁCH ĐỘNG CƠ</h3>
 <div id="list"></div><br>
-<button onclick="exportExcel()">XUẤT EXCEL</button>
+
 <button class="red" onclick="clearAll()">XÓA TẤT CẢ</button>
 </div>
 
@@ -449,26 +418,29 @@ return;
 
 let h="<table><tr>";
 for(let k in arr[0])
-if(k!="row") h+=`<th>${k}</th>`;
+if(k!="row" && k!="Thời gian") h+=`<th>${k}</th>`;
 h+="<th>Thao tác</th></tr>";
 
 arr.forEach((r,i)=>{
 h+="<tr>";
 for(let k in r)
-if(k!="row") h+=`<td>${r[k]}</td>`;
+if(k!="row" && k!="Thời gian") h+=`<td>${r[k]}</td>`;
 h+=`
 <td>
 <button onclick="sua(${i})">Sửa</button>
 <button class="red" onclick="xoa(${i})">Xóa</button>
 </td></tr>`;
 });
+
 list.innerHTML=h+"</table>";
 }
 
+
+
 loadData();
+
 </script>
 
 
 </body>
 </html>
-
