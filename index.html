@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Quản lý quấn động cơ PRO</title>
+<title>Quản lý quấn động cơ </title>
 <script src="https://script.google.com/macros/s/AKfycbwJyHKqYHSrcV2TEkMvV_ShSQe49LOSzgIOu501HmvsiMr--ycsY1ZqR3MdxmLpddQCQQ/exec"></script>
 
 <style>
@@ -139,14 +139,50 @@ PHẦN MỀM QUẢN LÝ QUẤN ĐỘNG CƠ
 
 <!-- THÔNG TIN CHUNG -->
 <div class="card">
+<!-- THÔNG TIN CHUNG -->
+<div class="card">
 <h3>① THÔNG TIN CHUNG</h3>
 <div class="grid">
-<div class="field"><label>Tên động cơ</label><input id="ten"></div>
+
+<div class="field">
+  <label>Loại động cơ</label>
+  <input id="hang" list="dsHang" placeholder="">
+  <datalist id="dsHang">
+    <option value="Bảo Long">
+    <option value="VTC">
+    <option value="Hồng Ký">
+    <option value="Thượng Hải">
+    <option value="Khác">
+  </datalist>
+</div>
 <div class="field"><label>Loại</label>
 <select id="loai"><option>1 pha</option><option>3 pha</option></select></div>
-<div class="field"><label>Công suất</label><input id="cs"></div>
-<div class="field"><label>Điện áp</label><input id="ap"></div>
-<div class="field"><label>Tụ</label><input id="tu"></div>
+<div class="field"><label>Công suất</label>
+  <input id="cong suat" list="dscs" placeholder="">
+  <datalist id="dscs">
+    <option value="200w">
+    <option value="370w">
+    <option value="750w">
+    <option value="1.1Kw">
+    <option value="2.2Kw">
+    <option value="3.0Kw">
+    <option value="3.7Kw">
+    <option value="Khác">
+  </datalist>
+</div>
+<div class="field"><label>Điện áp</label>
+<select id="dienap"><option>220V</option><option>110V</option><option>380V</option></select></div>
+<div class="field"><label>Tụ</label>
+  <input id="tu" list="dstu" placeholder="">
+  <datalist id="dstu">
+    <option value="20-200">
+    <option value="30-300">
+    <option value="40-300">
+    <option value="45-300">
+    <option value="50-300">
+    <option value="Khác">
+  </datalist>
+</div>
 <div class="field"><label>Đạn</label><input id="dan"></div>
 </div>
 </div>
@@ -435,3 +471,4 @@ loadData();
 
 </body>
 </html>
+
